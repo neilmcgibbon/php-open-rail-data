@@ -40,25 +40,10 @@ This is done via composer (packagist). Add the following to your composer.json f
 
 ### Stomp - Network Rail events
 
-Events can be processed in two distinct ways.
+Events are processed via the observer / event dispatcher pattern
  
- 1. Via a traditional loop
- 2. Via an event dispatcher.
  
-Simople example 1: Traditional loop
-
-```php
-
-$connection = new Connection($username, $password);
-$topic = new Topics\Rtppm();
-$connection->addTopic($topic);
-
-foreach ($connection->loop() as $event) {
-  // $event is a rendered event object, such as RtppmEvent, etc.
-}
-```
-
-Simple example 2: Event dispatcher
+Simple example:
 
 ```php
 
