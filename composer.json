@@ -1,6 +1,7 @@
 {
   "name": "neilmcgibbon/php-open-rail-data",
   "description": "A PHP libary for processing API events from the Open Rail Data initiative",
+  "license": "MIT",
   "require": {
     "php": ">=5.5.0",
     "symfony/event-dispatcher": "2.7.0"
