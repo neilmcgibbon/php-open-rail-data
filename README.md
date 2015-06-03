@@ -9,7 +9,7 @@ This is done via composer (packagist). Add the following to your composer.json f
 ```json
 {
   "require": {
-     "neilmcgibbon/php-open-rail-data": "dev-master"
+     "neilmcgibbon/php-open-rail-data": "0.1.0"
   }
 }
 ```
@@ -42,34 +42,6 @@ This is done via composer (packagist). Add the following to your composer.json f
 
 Events are processed via the observer / event dispatcher pattern
  
- 
-Simple example:
-
-```php
-
-// Listener class, somewhere in your code.
-class MyListener() 
-{
-	public function onEventReceived(AbstractEvent $event) 
-	{
-		// $event is a rendered event object, such as RtppmEvent, etc.
-	}
-}
-
-// Connection processor, somewhere else in your code
-
-$connection = new Connection($username, $password);
-$topic = new Topics\Rtppm();
-$topic->addListener(new MyListener);
-$connection->addTopic($topic);
- 
-$connection->listen(); // Blocking process, always alive.
-
-// When an event is received it will be dispatched to your defined class.
-
-
-```
-
 ##### Example:
 
 To listen for Real Time Passenger Performance Measurements (RTPPM events), and then dump out the number of late trains on the "National Page" level:
@@ -96,7 +68,7 @@ $connection = new \OpenRailData\NetworkRail\Services\Stomp\Connection(
 );
 
 // Create the Topic.
-$topic = new OpenRailData\NetworkRail\Services\Stomp\Topics\Rtppm\Rtppm();
+$topic = new OpenRailData\NetworkRail\Services\Stomp\Topics\Rtppm\RtppmTopic();
 
 // Add our event listener to the topic
 $topic->addListener(new ExampleEventListener());
